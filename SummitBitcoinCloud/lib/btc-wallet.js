@@ -11,11 +11,6 @@ function BTCWallet() {
   query.use(cors());
   query.use(bodyParser());
 
-  var data = {
-    name: "jeff",
-    addresses: ["1JcX75oraJEmzXXHpDjRctw3BX6qDmFM8e"]
-  };
-
   console.log('Listening for Bitcoin Wallet requests')
   query.get('/', function(req, res) {
 
@@ -82,7 +77,7 @@ function BTCWallet() {
       console.log("selection = " + selection);
 
       var walletName = req.body.walletName;
-      
+
       var formData = {
         name: walletName,
         addresses: ["1JcX75oraJEmzXXHpDjRctw3BX6qDmFM8e"]
@@ -107,9 +102,9 @@ function BTCWallet() {
 
             console.log("Output sending to the client\n" + JSON.stringify(output));
 
-            res.json(output); 
+            res.json(output);
         }) //end request
-      
+
 
 
   });
@@ -120,7 +115,7 @@ function BTCWallet() {
 function sortByName(x,y) {
   x = x.toLowerCase();
   y = y.toLowerCase();
-  
+
   return ((x == y) ? 0 : ((x > y) ? 1 : -1 ));
 }
 

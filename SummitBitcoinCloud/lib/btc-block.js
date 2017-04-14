@@ -12,7 +12,7 @@ function BTCQuery() {
     query.use(cors());
     query.use(bodyParser());
 
-    console.log('Listening for Blockchain queries')
+    console.log('Listening for Blockchain data queries')
 
     query.get('/', function(req, res) {
 
@@ -61,24 +61,6 @@ function BTCQuery() {
             })
         }
 
-    });
-
-    query.get('/3scale', function(req, res) {
-        console.log(new Date(), 'Bitcoin Service GET / req.query=', req.query);
-        request(apiloc, function(error, response, body) {
-            console.log('Summary of Bitcoin Ledger: ', body);
-            res.json({
-                btcinfo: body + ' query: ' + apiloc
-            });
-            //      res.send('Summary of Bitcoin Ledger: '+body);
-        });
-    });
-
-    query.get('/blocks', function(req, res) {
-        console.log(new Date(), 'Bitcoin Service GET /blocks req.query=', req.query);
-        request(loc + '/blocks/' + height, function(error, response, body) {
-            res.send('Blocks at depth ' + height + ' in the Bitcoin blockchain: ' + body);
-        });
     });
 
     return query;

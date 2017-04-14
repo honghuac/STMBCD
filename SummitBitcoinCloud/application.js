@@ -5,7 +5,7 @@ var cors = require('cors');
 
 // list the endpoints which you want to make securable here
 var securableEndpoints;
-securableEndpoints = ['/summit-bitcoin-block', '/summit-bitcoin-wallet'];
+securableEndpoints = ['/summit-bitcoin-block', '/summit-bitcoin-wallet', '/summit-bitcoin-transaction'];
 
 var app = express();
 
@@ -40,6 +40,7 @@ app.use(mbaasExpress.fhmiddleware());
 // app.use('/hello', require('./lib/hello.js')());
 app.use('/summit-bitcoin-block', require('./lib/btc-block.js')());
 app.use('/summit-bitcoin-wallet', require('./lib/btc-wallet.js')());
+app.use('/summit-bitcoin-transaction', require('./lib/btc-transact.js')());
 
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());

@@ -4,7 +4,7 @@ document.getElementById('getinfo').onclick = function () {
 
   $fh.cloud(
       {
-        path: 'summit-bitcoin-block',
+        path: 'summit-bitcoin-transaction',
         method: "GET",
         data: {
           selection : checkedRadioBtn('selection')
@@ -15,9 +15,15 @@ document.getElementById('getinfo').onclick = function () {
         document.getElementById('cloudResponse').innerHTML = "<p>Here is the Bitcoin information you wanted</p>";
         document.getElementById('cloudResponse_source').innerHTML = "Source: " + res.source;
 
-        document.getElementById('cloudResponse_name').innerHTML = "Block Name: " + res.data.name;
-        document.getElementById('cloudResponse_height').innerHTML = "Block Height: " + res.data.height;
-        document.getElementById('cloudResponse_hash').innerHTML = "Block Hash: " + res.data.hash;
+        document.getElementById('cloudResponse_blockhash').innerHTML = "Block Hash: " + res.data.block_hash;
+        document.getElementById('cloudResponse_blockheight').innerHTML = "Block Height: " + res.data.block_height;
+        document.getElementById('cloudResponse_transhash').innerHTML = "Transaction Hash: " + res.data.hash;
+        document.getElementById('cloudResponse_total').innerHTML = "Value: " + res.data.total + " Satoshis";
+        document.getElementById('cloudResponse_fees').innerHTML = "Fees: " + res.data.fees;
+        document.getElementById('cloudResponse_confirmation').innerHTML = "Confirmation: " + res.data.confirmations;
+        document.getElementById('cloudResponse_confirmed').innerHTML = "Confirmed: " + res.data.confirmed;
+        document.getElementById('cloudResponse_received').innerHTML = "Received: " + res.data.received;
+        document.getElementById('cloudResponse_size').innerHTML = "Size: " + res.data.size + " Bytes";
       },
 
       function (code, errorprops, params) {
