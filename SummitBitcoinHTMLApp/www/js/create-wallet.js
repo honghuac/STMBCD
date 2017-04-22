@@ -6,7 +6,7 @@ document.getElementById('submitname').onclick = function () {
       {
         path: 'summit-bitcoin-wallet',
         method: "POST",
-        data: { 
+        data: {
           walletName : document.getElementById('walname').value
         }
       },
@@ -17,7 +17,7 @@ document.getElementById('submitname').onclick = function () {
 
         document.getElementById('cloudResponse_walname').innerHTML = "Name: " + res.data.name;
         document.getElementById('cloudResponse_waladdress').innerHTML = "Wallet Address: " + res.data.addresses;
-        document.getElementById('cloudResponse_token').innerHTML = "Bitcoin Token: " + res.data.token;
+        document.getElementById('cloudResponse_token').innerHTML = "STMBCD Client Token: " + res.data.token;
       },
 
       function (code, errorprops, params) {
@@ -25,4 +25,3 @@ document.getElementById('submitname').onclick = function () {
       }
   );
 };
-
